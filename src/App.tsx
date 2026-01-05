@@ -1,13 +1,16 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Landing } from "./pages";
+import { ThemeProvider } from "./components/theme-provider";
 
 function App() {
 	return (
-		<Router>
-			<Routes>
-				<Route path="/" element={<Landing />} />
-			</Routes>
-		</Router>
+		<ThemeProvider>
+			<Router>
+				<Routes>
+					<Route path="/" element={<Landing />} />
+				</Routes>
+			</Router>
+		</ThemeProvider>
 	);
 }
 

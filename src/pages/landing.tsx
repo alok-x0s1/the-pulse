@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, BarChart3, Zap, Shield } from "lucide-react";
 import Button from "../components/ui/button";
+import ThemeToggle from "../components/ui/theme-toggle";
 
 export default function Landing() {
 	const navigate = useNavigate();
@@ -28,22 +29,20 @@ export default function Landing() {
 
 	return (
 		<div className="min-h-screen bg-linear-to-br from-background via-background to-background">
-			<header className="border-b border-border/50 bg-card/50 backdrop-blur-sm">
-				<div className="mx-auto max-w-7xl px-4 py-6 md:px-8">
+			<nav className="border-b border-border/50 bg-card/50 backdrop-blur-sm">
+				<div className="mx-auto max-w-7xl px-4 py-4 md:px-8">
 					<div className="flex items-center justify-between">
 						<motion.div
 							initial={{ opacity: 0, x: -20 }}
 							animate={{ opacity: 1, x: 0 }}
 							className="flex items-center gap-3"
 						>
-							<div className="flex h-8 w-8 items-center justify-center rounded-lg bg-linear-to-br from-primary to-accent">
+							{/* <div className="flex h-8 w-8 items-center justify-center rounded-sm bg-linear-to-br from-primary to-accent">
 								<span className="text-sm font-bold text-white">
-									DA
+									tP
 								</span>
-							</div>
-							<h1 className="text-xl font-bold">
-								Modern Dashboard
-							</h1>
+							</div> */}
+							<h1 className="text-xl font-bold">thePulse</h1>
 						</motion.div>
 						<motion.div
 							initial={{ opacity: 0, x: 20 }}
@@ -51,17 +50,19 @@ export default function Landing() {
 							className="flex gap-4"
 						>
 							<Button
+								className="py-3"
 								variant="ghost"
 								onClick={() => navigate("/dashboard")}
 							>
 								Sign In
 							</Button>
+							<ThemeToggle />
 						</motion.div>
 					</div>
 				</div>
-			</header>
+			</nav>
 
-			<section className="relative overflow-hidden px-4 py-20 md:px-8 md:py-32">
+			<header className="relative overflow-hidden px-4 py-20 md:px-8 md:py-32 min-h-screen">
 				<motion.div
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
@@ -72,7 +73,7 @@ export default function Landing() {
 					<div className="absolute bottom-0 left-0 h-64 w-64 bg-accent/10 blur-3xl" />
 				</motion.div>
 
-				<div className="relative mx-auto max-w-3xl">
+				<div className="relative mx-auto max-w-5xl">
 					<motion.div
 						variants={containerVariants}
 						initial="hidden"
@@ -82,7 +83,7 @@ export default function Landing() {
 							variants={itemVariants}
 							className="mb-4 inline-block"
 						>
-							<span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+							<span className="rounded-full bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary font-heading tracking-wider">
 								Welcome to the Future
 							</span>
 						</motion.div>
@@ -121,7 +122,7 @@ export default function Landing() {
 						</motion.div>
 					</motion.div>
 				</div>
-			</section>
+			</header>
 
 			<section className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
 				<motion.div
@@ -167,7 +168,7 @@ export default function Landing() {
 							transition={{ duration: 0.5, delay: i * 0.1 }}
 							viewport={{ once: true }}
 						>
-							<div className="group h-full rounded-lg border border-border bg-card p-8 transition-all duration-300 hover:border-primary/50 hover:shadow-lg">
+							<div className="group h-full rounded-sm border border-border bg-card p-8 transition-all duration-300 hover:border-primary/50 hover:shadow-lg">
 								<feature.icon className="mb-4 h-10 w-10 text-primary" />
 								<h4 className="mb-2 font-semibold">
 									{feature.title}
@@ -187,15 +188,16 @@ export default function Landing() {
 					whileInView={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.5 }}
 					viewport={{ once: true }}
-					className="rounded-lg border border-border bg-card/50 p-8 backdrop-blur-sm md:p-12"
+					className="rounded-sm border border-border bg-card/50 p-8 backdrop-blur-sm md:p-12"
 				>
 					<h3 className="mb-8 text-2xl font-bold">
 						Built with Modern Tech Stack
 					</h3>
 					<div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
 						{[
-							"React 18+",
+							"React.js",
 							"Vite",
+							"Tailwind Css",
 							"TypeScript",
 							"TanStack Query",
 							"Framer Motion",
@@ -206,7 +208,7 @@ export default function Landing() {
 								whileInView={{ opacity: 1, scale: 1 }}
 								transition={{ duration: 0.3, delay: i * 0.05 }}
 								viewport={{ once: true }}
-								className="rounded-lg bg-background p-4 text-center text-sm font-medium"
+								className="rounded-sm bg-background p-4 text-center text-sm font-medium"
 							>
 								{tech}
 							</motion.div>

@@ -23,7 +23,7 @@ export default function Button({
 	className = "",
 }: ButtonProps) {
 	const baseStyles =
-		"font-medium rounded-lg transition-all inline-flex items-center justify-center gap-2";
+		"font-medium rounded-sm transition-all inline-flex items-center justify-center gap-2 cursor-pointer";
 
 	const variants = {
 		primary: "bg-primary hover:bg-primary-dark text-white",
