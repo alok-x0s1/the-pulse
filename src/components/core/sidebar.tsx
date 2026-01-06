@@ -33,7 +33,7 @@ export default function Sidebar() {
 			{isMobile && (
 				<button
 					onClick={() => setIsOpen(!isOpen)}
-					className="fixed left-4 top-4 z-50 flex h-10 w-10 items-center justify-center rounded-lg bg-card md:hidden"
+					className="fixed left-4 top-4 z-50 flex h-10 w-10 items-center justify-center rounded-sm bg-card md:hidden"
 				>
 					{isOpen ? <X size={20} /> : <Menu size={20} />}
 				</button>
@@ -46,10 +46,10 @@ export default function Sidebar() {
 				className="fixed inset-y-0 left-0 z-40 w-64 border-r border-border bg-card md:relative md:translate-x-0"
 			>
 				<div className="flex h-full flex-col">
-					<div className="flex items-center gap-3 border-b border-border px-6 py-8">
-						<div className="flex h-8 w-8 items-center justify-center rounded-lg bg-linear-to-br from-primary to-accent">
+					<div className="flex items-center gap-3 border-b border-border px-6 py-5">
+						<div className="flex h-8 w-8 items-center justify-center rounded-sm bg-linear-to-br from-primary to-accent">
 							<span className="text-sm font-bold text-white">
-								DA
+								tP
 							</span>
 						</div>
 						<h1 className="text-lg font-bold">Dashboard</h1>
@@ -63,7 +63,7 @@ export default function Sidebar() {
 								onClick={() => isMobile && setIsOpen(false)}
 							>
 								<motion.div
-									className={`relative rounded-lg px-4 py-3 text-sm font-medium transition-colors ${
+									className={`relative rounded-sm px-4 py-3 text-sm font-medium transition-colors ${
 										isActive(item.path)
 											? "bg-primary/10 text-primary"
 											: "text-text-muted hover:bg-card hover:text-foreground"
@@ -75,7 +75,7 @@ export default function Sidebar() {
 									{isActive(item.path) && (
 										<motion.div
 											layoutId="active-nav"
-											className="absolute inset-0 rounded-lg border border-primary/30 bg-primary/5"
+											className="absolute inset-0 rounded-sm border border-primary/30 bg-primary/5"
 											initial={{ opacity: 0 }}
 											animate={{ opacity: 1 }}
 											exit={{ opacity: 0 }}
@@ -87,8 +87,8 @@ export default function Sidebar() {
 					</nav>
 
 					<div className="border-t border-border px-4 py-4 text-xs text-text-muted">
-						<p>Modern Dashboard v1.0</p>
-						<p className="mt-1">Built with React & Vite</p>
+						<p>ThePulse</p>
+						<p className="mt-1">Built with React & Typescript</p>
 					</div>
 				</div>
 			</motion.aside>
