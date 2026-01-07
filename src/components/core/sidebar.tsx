@@ -1,7 +1,15 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import {
+	BarChart3,
+	LayoutDashboard,
+	ListTodo,
+	Menu,
+	Settings,
+	User,
+	X,
+} from "lucide-react";
 
 export default function Sidebar() {
 	const [isOpen, setIsOpen] = useState(true);
@@ -12,6 +20,8 @@ export default function Sidebar() {
 		const handleResize = () => {
 			const mobile = window.innerWidth < 768;
 			setIsMobile(mobile);
+			if (mobile) setIsOpen(false);
+
 			if (!mobile) setIsOpen(true);
 		};
 
@@ -21,9 +31,11 @@ export default function Sidebar() {
 	}, []);
 
 	const navItems = [
-		{ label: "Dashboard", path: "/dashboard" },
-		{ label: "Items", path: "/items" },
-		{ label: "Settings", path: "/settings" },
+		{ label: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
+		{ label: "Items", path: "/items", icon: ListTodo },
+		{ label: "Analytics", path: "/analytics", icon: BarChart3 },
+		{ label: "Profile", path: "/profile", icon: User },
+		{ label: "Settings", path: "/settings", icon: Settings },
 	];
 
 	const isActive = (path: string) => location.pathname === path;
@@ -56,34 +68,39 @@ export default function Sidebar() {
 					</div>
 
 					<nav className="flex-1 space-y-2 px-4 py-6">
-						{navItems.map((item) => (
-							<Link
-								key={item.path}
-								to={item.path}
-								onClick={() => isMobile && setIsOpen(false)}
-							>
-								<motion.div
-									className={`relative rounded-sm px-4 py-3 text-sm font-medium transition-colors ${
-										isActive(item.path)
-											? "bg-primary/10 text-primary"
-											: "text-text-muted hover:bg-card hover:text-foreground"
-									}`}
-									whileHover={{ x: 4 }}
-									whileTap={{ scale: 0.98 }}
+						{navItems.map((item) => {
+							const Icon = item.icon;
+							return (
+								<Link
+									key={item.path}
+									to={item.path}
+									onClick={() => isMobile && setIsOpen(false)}
+									className="block"
 								>
-									{item.label}
-									{isActive(item.path) && (
-										<motion.div
-											layoutId="active-nav"
-											className="absolute inset-0 rounded-sm border border-primary/30 bg-primary/5"
-											initial={{ opacity: 0 }}
-											animate={{ opacity: 1 }}
-											exit={{ opacity: 0 }}
-										/>
-									)}
-								</motion.div>
-							</Link>
-						))}
+									<motion.div
+										className={`relative rounded-sm px-4 py-3 text-sm font-medium transition-colors flex items-center gap-3 ${
+											isActive(item.path)
+												? "bg-primary/10 text-primary"
+												: "text-text-muted hover:bg-card hover:text-foreground"
+										}`}
+										whileHover={{ x: 4 }}
+										whileTap={{ scale: 0.98 }}
+									>
+										<Icon size={18} />
+										<span>{item.label}</span>
+										{isActive(item.path) && (
+											<motion.div
+												layoutId="active-nav"
+												className="absolute inset-0 rounded-sm border border-primary/30 bg-primary/5"
+												initial={{ opacity: 0 }}
+												animate={{ opacity: 1 }}
+												exit={{ opacity: 0 }}
+											/>
+										)}
+									</motion.div>
+								</Link>
+							);
+						})}
 					</nav>
 
 					<div className="border-t border-border px-4 py-4 text-xs text-text-muted">
