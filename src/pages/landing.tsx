@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, BarChart3, Zap, Shield } from "lucide-react";
-import Button from "../components/core/button";
-import ThemeToggle from "../components/core/theme-toggle";
+import Button from "../components/ui/button";
+import ThemeToggle from "../components/ui/theme-toggle";
 
 export default function Landing() {
 	const navigate = useNavigate();
