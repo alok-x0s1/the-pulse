@@ -46,3 +46,10 @@ html.light {
 ::-webkit-scrollbar {
 	display: none;
 }
+
+.recharts-surface {
+	outline: none;
+}
+.recharts-layer {
+	outline: none;
+}
