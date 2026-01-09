@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
 	BarChart3,
@@ -15,6 +15,7 @@ export default function Sidebar() {
 	const [isOpen, setIsOpen] = useState(true);
 	const [isMobile, setIsMobile] = useState(false);
 	const location = useLocation();
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -59,7 +60,10 @@ export default function Sidebar() {
 			>
 				<div className="flex h-full flex-col">
 					<div className="flex items-center gap-3 border-b border-border px-6 py-5">
-						<div className="flex h-8 w-8 items-center justify-center rounded-sm bg-linear-to-br from-primary to-accent">
+						<div
+							onClick={() => navigate("/")}
+							className="flex cursor-pointer h-8 w-8 items-center justify-center rounded-sm bg-linear-to-br from-primary to-accent"
+						>
 							<span className="text-sm font-bold text-white">
 								tP
 							</span>

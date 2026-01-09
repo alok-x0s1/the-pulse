@@ -26,7 +26,7 @@ export function useCreateItem() {
 		onSuccess: () => {
 			queryClient.invalidateQueries({ queryKey: queryKeys.items.list() });
 			queryClient.invalidateQueries({
-				queryKey: queryKeys.analytics.dashboard(),
+				queryKey: queryKeys.analytics.all,
 			});
 		},
 	});
@@ -40,7 +40,7 @@ export function useUpdateItem() {
 		onSuccess: () => {
 			queryClient.invalidateQueries({ queryKey: queryKeys.items.list() });
 			queryClient.invalidateQueries({
-				queryKey: queryKeys.analytics.dashboard(),
+				queryKey: queryKeys.analytics.all,
 			});
 		},
 	});
@@ -53,7 +53,7 @@ export function useDeleteItem() {
 		onSuccess: () => {
 			queryClient.invalidateQueries({ queryKey: queryKeys.items.list() });
 			queryClient.invalidateQueries({
-				queryKey: queryKeys.analytics.dashboard(),
+				queryKey: queryKeys.analytics.all,
 			});
 		},
 	});

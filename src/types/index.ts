@@ -9,6 +9,7 @@ export interface Item {
 }
 
 export interface ChartData {
+	[key: string]: string | number | undefined;
 	name: string;
 	value: number;
 	date?: string;
@@ -19,4 +20,16 @@ export interface DashboardMetrics {
 	activeItems: number;
 	completedItems: number;
 	archivedItems: number;
+}
+
+export interface AnalyticsData {
+	metrics: {
+		totalItems: number;
+		activeItems: number;
+		completedItems: number;
+		archivedItems: number;
+	};
+	growthData: Array<{ name: string; value: number }>;
+	statusData: Array<{ name: string; value: number }>;
+	priorityData: Array<{ name: string; value: number }>;
 }
