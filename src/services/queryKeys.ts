@@ -8,5 +8,8 @@ export const queryKeys = {
 		all: ["analytics"] as const,
 		dashboard: () => [...queryKeys.analytics.all, "dashboard"] as const,
 		metrics: () => [...queryKeys.analytics.all, "metrics"] as const,
+		status: () => [...queryKeys.analytics.all, "status"] as const,
+		priority: () => [...queryKeys.analytics.all, "priority"] as const,
+		trend: () => [...queryKeys.analytics.all, "trend"] as const,
 	},
 } as const;
