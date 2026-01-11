@@ -124,27 +124,29 @@ export default function Items() {
 	return (
 		<div className="space-y-8">
 			<div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-				<div>
-					<h1 className="text-4xl font-bold">Items</h1>
+				<div className="w-full">
+					<div className="flex justify-between w-full">
+						<h1 className="text-4xl font-bold">Items</h1>
+						<Button
+							size="lg"
+							onClick={() => {
+								setIsFormOpen(!isFormOpen);
+								if (isFormOpen) {
+									setSearchParams({});
+								}
+							}}
+							className="gap-2"
+							variant={isFormOpen ? "secondary" : "primary"}
+						>
+							<Plus size={18} />
+							{isFormOpen ? "Cancel" : "New Item"}
+						</Button>
+					</div>
 					<p className="mt-2 text-text-muted">
 						Manage your tasks, notes, and projects with full CRUD
 						operations.
 					</p>
 				</div>
-				<Button
-					size="lg"
-					onClick={() => {
-						setIsFormOpen(!isFormOpen);
-						if (isFormOpen) {
-							setSearchParams({});
-						}
-					}}
-					className="gap-2"
-					variant={isFormOpen ? "secondary" : "primary"}
-				>
-					<Plus size={18} />
-					{isFormOpen ? "Cancel" : "New Item"}
-				</Button>
 			</div>
 
 			<AnimatePresence>

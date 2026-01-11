@@ -197,8 +197,8 @@ export default function Landing() {
 						{[
 							"React.js",
 							"Vite",
-							"Tailwind Css",
 							"TypeScript",
+							"Tailwind Css",
 							"TanStack Query",
 							"Framer Motion",
 						].map((tech, i) => (
