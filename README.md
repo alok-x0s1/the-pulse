@@ -184,3 +184,10 @@ The Pulse is optimized for speed:
 -   [CloudFront Guide](https://docs.aws.amazon.com/cloudfront/)
 
 **Built with ❤️ to learn AWS deployment and modern React patterns.**
+
+### Connect With Me
+
+[![GitHub](https://img.shields.io/badge/GitHub-Alok%20Yadav-181717?logo=github)](https://github.com/alok-x0s1)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Alok%20Yadav-0A66C2?logo=linkedin&logoColor=white)](https://linkedin.com/in/alok-x0s1)
+[![LinkedIn](https://img.shields.io/badge/Instagram-Alok%20Yadav-E4405F?logo=instagram&logoColor=white)](https://instagram.com/9.pnpm)
+
